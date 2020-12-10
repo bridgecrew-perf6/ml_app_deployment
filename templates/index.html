@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API for Meteorology Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Temperature and Relative Humidity</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="MSL_Pressure" placeholder="MSL Pressure" required="required" />
+        <input type="text" name="low_cld_lay" placeholder="Low Cloud Layer" required="required" />
+		<input type="text" name="CAPE" placeholder="CAPE" required="required" />
+		<input type="text" name="Wind_Dir_10m" placeholder="Wind Dir 10m" required="required" />
+		<input type="text" name="Wind_Dir_80m" placeholder="Wind Dir 80m" required="required" />
+		<input type="text" name="Wind_Dir_850mb" placeholder="Wind Dir 850mb" required="required" />
+		<input type="text" name="Wind_Speed_500mb" placeholder="Wind_Speed_500mb" required="required" />
+		<input type="text" name="GP_Height_850mb" placeholder="GP Height 850mb" required="required" />
+		<input type="text" name="GP_Height_700mb" placeholder="GP Height 700mb" required="required" />
+		<input type="text" name="Temp_850mb" placeholder="Temp 850mb" required="required" />
+		<input type="text" name="Temp_700mb" placeholder="Temp 700mb" required="required" />
+		<input type="text" name="Vapor_Pressure_Deficit_2m" placeholder="Vapor Pressure Deficit 2m" required="required" />
+		<input type="text" name="month" placeholder="month" required="required" />
+		
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
